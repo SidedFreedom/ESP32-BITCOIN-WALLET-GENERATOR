@@ -374,7 +374,7 @@ printer.feed(3);
   
   display.clearBuffer();
   display.setTextSize(1);
-  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.0\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup\n\n\n If SD Fat card present, it now has wallet info.", COLOR1);
+  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.1\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup\n\n\n If SD Fat card present, it now has wallet info.", COLOR1);
   display.display();
   
   }
@@ -453,7 +453,7 @@ void loop()
   ///////////////////
   display.clearBuffer();
   display.setTextSize(1);
-  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.0\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup", COLOR1);
+  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.1\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup", COLOR1);
   display.display();}
  
 
@@ -481,7 +481,7 @@ void loop()
   ///////////////////
   display.clearBuffer();
   display.setTextSize(1);
-  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.0\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup", COLOR1);
+  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.1\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup", COLOR1);
   display.display();}
 
   if ( digitalRead(BUTTONC) == LOW )
@@ -527,7 +527,7 @@ void loop()
   ///////////////////
   display.clearBuffer();
   display.setTextSize(1);
-  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.0\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup\n\n\n If SD Fat card present, it now has wallet info.", COLOR1);
+  testdrawtext("IN CHRIST ALONE WE TRUST\n\nLIBERTOPIA BITCOIN WALLET GENERATOR v2.1\n\n\nPress button near USB-C to generate wallet.\n\n1) Press Top Left Button for Address 0 \n\n2) Press Top Middle Button for XPUB \n\n3) Press Top Right Button for Recovery Phrase \n& Optional SD Card Backup\n\n\n If SD Fat card present, it now has wallet info.", COLOR1);
   display.display();
   }
 
