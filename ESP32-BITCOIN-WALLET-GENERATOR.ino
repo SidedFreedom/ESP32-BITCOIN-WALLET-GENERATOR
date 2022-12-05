@@ -3,6 +3,8 @@
 
 //Obviously you need to install libraries like ricmoo's qrcode, uBitcoin, SdFat (not the forks), and various Adafruit libraries for this to work
 
+
+#include "bootloader_random.h"
 #include <Bitcoin.h>
 #include <qrcoderm.h> //CRITICAL see instructions for renaming files here or QR code will not work https://github.com/ricmoo/QRCode/issues/35#issuecomment-1179311130
 #include <SPI.h>
@@ -10,6 +12,10 @@
 SdFat SD;
 File myFile;
 
+float ONE;
+float TWO;
+float THREE;
+float FOUR;
 
 #include "Adafruit_Thermal.h" //CRITICAL edit this file to increase the heat of the printer. My settings: setHeatConfig(uint8_t dots=11, uint8_t time=200, uint8_t interval=240)
 
@@ -98,13 +104,44 @@ String pu2;
 String pu3;
 String pu4;
 String phra;
+String phrase;
+String ROOOT;
 String pubx;
+
+int RAND1;
+int RANDO;
 
 
 
 uint8_t generate_random_8bit()
 {
-    return (uint8_t)esp_random();
+    bootloader_random_enable();
+    ONE = esp_random();
+    TWO = esp_random();
+    THREE = esp_random();
+    FOUR = esp_random();
+
+    RAND1 = random(1,8);
+    if (RAND1 == 1)
+    {RANDO = int(ONE/TWO);};
+    if (RAND1 == 2)
+    {RANDO = int(ONE*TWO);};
+    if (RAND1 == 3)
+    {RANDO = int(TWO/FOUR);};
+    if (RAND1 == 4)
+    {RANDO = int(THREE+ONE);};
+    if (RAND1 == 5)
+    {RANDO = int(THREE*ONE);};
+    if (RAND1 == 6)
+    {RANDO = int(TWO+ONE);};
+    if (RAND1 == 7)
+    {RANDO = int(FOUR+TWO);};
+    if (RAND1 == 8)
+    {RANDO = int(TWO-THREE);};
+    
+    //add in EMF entropy
+    return (uint8_t)RANDO;
+    bootloader_random_disable();
 }
 
 void testdrawtext(const char *text, uint16_t color) {
@@ -140,7 +177,7 @@ void generate_wallet()
   
   
   String entropy = pkstr;
-  String phrase = generateMnemonic(12, entropy);
+  phrase = generateMnemonic(12, entropy);
   Serial.println(phrase);
 
 phra = String("Private Recovery Phrase:\n\n")+phrase;
@@ -148,10 +185,9 @@ PHR = phra.c_str();
 
 // using default empty password
 HDPrivateKey root(phrase, "");
-//Serial.println(root);
-  
-
+ROOOT = root;
 HDPrivateKey account = root.derive("m/84'/0'/0'");
+Serial.println(root);
 Serial.println(account);
 Serial.println(account.xpub());
 
@@ -414,9 +450,15 @@ void setup()
 
   SD.remove("PHRASE.txt");
   myFile = SD.open("PHRASE.txt", FILE_WRITE);
-  myFile.println(phra);
+  myFile.println(phrase);
   myFile.close();
   Serial.println("PHRASE text written to SD");
+
+  SD.remove("ROOT.txt");
+  myFile = SD.open("ROOT.txt", FILE_WRITE);
+  myFile.println(ROOOT);
+  myFile.close();
+  Serial.println("ROOT text written to SD");
 
   Serial.println("Setup complete. Keys written to SD if FAT formatted card is present and SD initializes correctly.");
 
