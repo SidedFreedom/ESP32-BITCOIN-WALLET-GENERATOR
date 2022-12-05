@@ -199,7 +199,7 @@ HDPublicKey xpub = account.xpub();
 pubx = account.xpub();
 Serial.println(pubx);
 BWxpub = "["+finger+"/84h/0h/0h"+"]"+pubx;
-XXPUB = pubx.c_str();
+XXPUB = BWxpub.c_str();
 Serial.println(XXPUB);
 
 HDPublicKey pub1;
