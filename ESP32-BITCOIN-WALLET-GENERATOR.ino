@@ -106,6 +106,8 @@ String pu4;
 String phra;
 String phrase;
 String ROOOT;
+String finger;
+String BWxpub;
 String pubx;
 
 int RAND1;
@@ -186,6 +188,7 @@ PHR = phra.c_str();
 // using default empty password
 HDPrivateKey root(phrase, "");
 ROOOT = root;
+finger = root.fingerprint();
 HDPrivateKey account = root.derive("m/84'/0'/0'");
 Serial.println(root);
 Serial.println(account);
@@ -195,6 +198,7 @@ Serial.println(account.xpub());
 HDPublicKey xpub = account.xpub();
 pubx = account.xpub();
 Serial.println(pubx);
+BWxpub = "["+finger+"/84h/0h/0h"+"]"+pubx;
 XXPUB = pubx.c_str();
 Serial.println(XXPUB);
 
